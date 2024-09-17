@@ -1,0 +1,112 @@
+/*
+=============== 
+Fonts
+===============
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Caprasimo&family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  --dark-blue: #292b5c;
+  --light-blue: #4856a0;
+  --lighter-blue: #3f82b2;
+  --green: #55eca9;
+  --white: #fff;
+  --black: #000000;
+  --gradient: linear-gradient(to right, #3f82b2, #292b5c);
+
+  --ff-roboto: 'Roboto', sans-serif;
+  --ff-caprasimo: 'Caprasimo', serif;
+  --ff-pacifico: 'Pacifico', cursive;
+  --ff-bruno: 'Bruno Ace', sans-serif;
+
+  --transition: all 0.3s linear;
+  --spacing: 0.15rem;
+  --radius-light: 0.5rem;
+  --radius-circle: 45px;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1200px;
+  --fixed-width: 620px;
+}
+
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--ff-roboto);
+  background: var(--light-blue);
+  color: var(--white);
+  font-size: 0.875rem;
+}
+
+ul {
+  margin-left: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-family: var(--ff-caprasimo);
+  color: var(--white);
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--white);
+  font-family: var(--ff-caprasimo);
+}
+
+h3 {
+  font-size: 1.8rem;
+  font-family: var(--ff-caprasimo);
+  text-transform: capitalize;
+  color: var(--white);
+}
+
+h4 {
+  font-size: 1.2rem;
+  font-family: var(--ff-caprasimo);
+  text-transform: capitalize;
+  color: var(--gray-dark);
+}
+
+.highlight {
+  background-color: var(--lighter-blue);
+}
+
+/*===== HEADER =====*/
