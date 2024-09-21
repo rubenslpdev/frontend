@@ -55,13 +55,13 @@ html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--ff-roboto);
   background: #dd77ae;
   color: var(--white);
-  font-size: 0.875rem;
 }
 
 ul {
@@ -123,6 +123,7 @@ HEADER
   color: var(--white);
   font-family: var(--ff-caprasimo);
   padding: 1rem 0 0;
+  margin: 2rem 0;
 }
 
 .logo span {
@@ -161,7 +162,7 @@ HEADER
 
 .header-container1 p:nth-of-type(2) {
   line-height: var(--line-height);
-  margin: 3rem 0;
+  margin: 5rem 0;
   max-width: 80%;
 }
 
@@ -177,6 +178,7 @@ HEADER
   transition: var(--transition);
   box-shadow: var(--dark-shadow);
   position: relative;
+  margin-bottom: 5rem;
 }
 
 .btn-header:hover {
@@ -261,6 +263,7 @@ PROJETOS RECENTES
 
 .projetos-header p {
   color: var(--black);
+  margin-top: 1rem;
 }
 
 .projetos-highlight {
@@ -277,15 +280,20 @@ PROJETOS RECENTES
 .projetos-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 26rem;
   width: 100%;
+  gap: 1.5rem;
 }
 
 .projetos-card1,
 .projetos-card2,
 .projetos-card3 {
-  max-width: 20.3125rem; /* Largura máxima para os cards */
+  max-width: 100%; /* Largura máxima para os cards */
+  width: 20.3125rem;
   flex: 1; /* Para os cards crescerem de maneira uniforme */
+  display: flex;
+  flex-direction: column;
 }
 
 .projetos-card2 {
@@ -293,7 +301,8 @@ PROJETOS RECENTES
 }
 
 .projetos-img {
-  max-width: 20.3125rem;
+  max-width: 100%;
+  width: 20.3125rem;
   height: auto;
   border-radius: 2.125rem;
 }
@@ -317,28 +326,45 @@ Media Query
     font-size: 2.5rem;
   }
 
+  .header-container1 p:nth-of-type(2) {
+    max-width: 100%;
+  }
+
   .btn-header {
-    margin-bottom: 1.5rem;
+    width: 100%;
   }
 
   .header-container2 img {
-    margin: 1.5rem 0;
+    margin: 1rem auto 2.3rem;
   }
 
   /* Projetos recentes */
+
+  .projetos-header {
+    position: relative;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .projetos-titulo {
+    font-size: 2.2rem;
+  }
 
   .projetos-highlight {
     margin: 0 1.5rem;
   }
 
   .projetos-container {
-    display: block;
-    margin-top: 16rem;
+    display: flex;
+    flex-direction: column; /* Alinha os cards em coluna no mobile */
+    align-items: center; /* Centraliza os cards horizontalmente */
+    margin-top: 6rem;
   }
 
   .projetos-card1,
   .projetos-card2,
   .projetos-card3 {
+    max-width: 100%;
     margin: 0 auto 2rem; /* Centraliza os cards e dá um espaçamento entre eles */
   }
 
