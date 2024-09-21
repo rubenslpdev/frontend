@@ -74,12 +74,11 @@ a {
 
 h1,
 h2 {
-  letter-spacing: var(--spacing);
   margin-bottom: 0.5rem;
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 h2 {
@@ -117,12 +116,13 @@ HEADER
   position: relative;
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 1.5rem;
 }
 
 .logo {
   color: var(--white);
   font-family: var(--ff-caprasimo);
-  padding: 1rem 1.5rem 0;
+  padding: 1rem 0 0;
 }
 
 .logo span {
@@ -144,7 +144,6 @@ HEADER
 .header-container1,
 .header-container2 {
   flex: 1; /* Cada container ocupará o mesmo espaço */
-  padding: 1.5rem;
 }
 
 .header-container1 p:nth-of-type(1) {
@@ -152,11 +151,11 @@ HEADER
   font-size: 0.8rem;
 }
 
-.header-container1 h2 {
+.header-container1 h1 {
   font-family: var(--ff-caprasimo);
 }
 
-.header-container1 h2 span {
+.header-container1 h1 span {
   background-color: var(--light-blue);
 }
 
@@ -224,16 +223,98 @@ HEADER
 }
 
 /*
+==================
+PROJETOS RECENTES 
+==================
+*/
+
+#projetos {
+  background: #f4f6f7 url('./imgs/ripple-bg.svg') no-repeat bottom / cover;
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+/* Projetos Título */
+
+.projetos-header {
+  position: absolute;
+  width: 100%;
+  max-width: 30rem;
+  text-align: right;
+  right: 0;
+  padding: 0 1.5rem;
+  margin-top: 4rem;
+}
+
+.projetos-titulo {
+  position: relative;
+  font-family: var(--ff-caprasimo);
+  color: var(--light-blue);
+  text-shadow: 3px 3px var(--green);
+  z-index: 1;
+}
+
+.projetos-titulo span {
+  font-family: var(--ff-pacifico);
+}
+
+.projetos-header p {
+  color: var(--black);
+}
+
+.projetos-highlight {
+  position: absolute;
+  right: 0;
+  top: 2.3rem;
+  width: 100%;
+  height: 1.7rem;
+  background-color: var(--green);
+}
+
+/* Projetos cards */
+
+.projetos-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 26rem;
+  width: 100%;
+}
+
+.projetos-card1,
+.projetos-card2,
+.projetos-card3 {
+  max-width: 20.3125rem; /* Largura máxima para os cards */
+  flex: 1; /* Para os cards crescerem de maneira uniforme */
+}
+
+.projetos-card2 {
+  transform: translateY(-10rem);
+}
+
+.projetos-img {
+  max-width: 20.3125rem;
+  height: auto;
+  border-radius: 2.125rem;
+}
+
+/*
 ==============
 Media Query 
 ==============
 */
 
-@media (max-width: 760px) {
+@media (max-width: 800px) {
+  /* Header */
+
   .header-containers {
     display: flex;
     flex-direction: column-reverse;
     text-align: left;
+  }
+
+  .header-container1 h1 {
+    font-size: 2.5rem;
   }
 
   .btn-header {
@@ -241,6 +322,27 @@ Media Query
   }
 
   .header-container2 img {
-    margin: 0;
+    margin: 1.5rem 0;
+  }
+
+  /* Projetos recentes */
+
+  .projetos-highlight {
+    margin: 0 1.5rem;
+  }
+
+  .projetos-container {
+    display: block;
+    margin-top: 16rem;
+  }
+
+  .projetos-card1,
+  .projetos-card2,
+  .projetos-card3 {
+    margin: 0 auto 2rem; /* Centraliza os cards e dá um espaçamento entre eles */
+  }
+
+  .projetos-card2 {
+    transform: none;
   }
 }
