@@ -4,7 +4,6 @@
 
 let mybutton = document.getElementById('topButton');
 
-// When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
   scrollFunction();
 };
@@ -23,7 +22,7 @@ function topFunction() {
 }
 
 //
-// Animação cards de projetos
+// Animação cards de projetos e timeline
 //
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -39,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     },
     {
-      threshold: 0.3, // O elemento será considerado visível quando 30% dele estiver na viewport
+      threshold: 0.4, // O elemento será considerado visível quando 40% dele estiver na viewport
     }
   );
 
@@ -47,3 +46,24 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(card);
   });
 });
+
+//
+// MOver botão de download para fim da .timeline
+//
+
+window.addEventListener('resize', function () {
+  const button = document.querySelector('.download-button');
+  const intro = document.querySelector('.curriculo-intro');
+  const resume = document.querySelector('.curriculo-resume');
+
+  if (window.innerWidth <= 768) {
+    // Move o botão para após a timeline
+    resume.appendChild(button);
+  } else {
+    // Move o botão de volta para após o título
+    intro.appendChild(button);
+  }
+});
+
+// Executa a função ao carregar a página para garantir o comportamento correto desde o início
+window.dispatchEvent(new Event('resize'));

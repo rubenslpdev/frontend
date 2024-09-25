@@ -168,16 +168,18 @@ HEADER
 /* Button Header */
 
 .btn-header {
+  width: 230px;
+  height: 55px;
   padding: 13px 30px;
   border: none;
-  border-radius: var(--radius-light);
+  border-radius: 45px;
   background-color: var(--green);
   color: var(--dark-blue);
   cursor: pointer;
   transition: var(--transition);
-  box-shadow: var(--dark-shadow);
   position: relative;
   margin-bottom: 5rem;
+  font-size: 1rem;
 }
 
 .btn-header:hover {
@@ -187,7 +189,6 @@ HEADER
 
 .btn-header:active {
   top: 2px;
-  box-shadow: none;
 }
 
 .fa-briefcase {
@@ -349,7 +350,7 @@ PROJETOS RECENTES
 
 /*
 ==================
-CURRICULO 
+CURRICULUM VITAE 
 ==================
 */
 
@@ -371,11 +372,18 @@ CURRICULO
 
 .curriculo-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  /* align-items: center; */
   margin-top: 10rem;
   width: 100%;
   gap: 1.5rem;
+}
+
+.curriculo-intro,
+.curriculo-resume {
+  flex: 1 1 45%;
 }
 
 .curriculo-intro h3 {
@@ -386,8 +394,8 @@ CURRICULO
 /* Download button */
 
 .download-button {
-  --width: 150px;
-  --height: 35px;
+  --width: 230px;
+  --height: 55px;
   --tooltip-height: 35px;
   --tooltip-width: 90px;
   --gap-between-tooltip-to-button: 18px;
@@ -401,6 +409,10 @@ CURRICULO
   border-radius: 45px;
   transition: background 0.3s;
   cursor: pointer;
+}
+
+.download-button:active {
+  top: 2px;
 }
 
 .download-button::before {
@@ -502,13 +514,92 @@ CURRICULO
 
 /* End Download Button */
 
+/* Timeline */
+
+.timeline {
+  width: 100%;
+  padding: 100px 0 50px;
+  position: relative;
+}
+.timeline:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: calc(33% + 15px);
+  bottom: 0px;
+  width: 4px;
+  background: #fff;
+}
+.timeline:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.entry {
+  clear: both;
+  text-align: left;
+  position: relative;
+}
+.entry .title {
+  margin-bottom: 0.5em;
+  float: left;
+  width: 33%;
+  padding-right: 30px;
+  text-align: right;
+  position: relative;
+}
+.entry .title:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #fff;
+  background-color: #3f82b2;
+  border-radius: 100%;
+  top: 15%;
+  right: -27px;
+  z-index: 99;
+}
+.entry .title h3 {
+  color: #3f82b2;
+  margin: 0;
+  font-size: 120%;
+}
+.entry .title p {
+  margin: 0;
+  font-size: 100%;
+  color: var(--dark-blue);
+}
+.entry .body {
+  margin: 0 0 3em;
+  float: right;
+  width: 66%;
+  padding-left: 30px;
+}
+.entry .body p {
+  line-height: 1.4em;
+}
+.entry .body p:first-child {
+  margin-top: 0;
+  font-weight: 400;
+}
+.entry .body ul {
+  color: var(--dark-blue);
+  padding-left: 0;
+  list-style-type: none;
+}
+.entry .body ul li:before {
+  content: '–';
+  margin-right: 0.5em;
+}
+
 /*
 ==============
 Media Query 
 ==============
 */
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   /* Header */
 
   .header-containers {
@@ -527,6 +618,8 @@ Media Query
 
   .btn-header {
     width: 100%;
+    height: 60px;
+    font-size: 1.2rem;
   }
 
   .header-container2 img {
@@ -571,6 +664,30 @@ Media Query
   .projetos-card2 {
     transform: none;
   }
+
+  /* Curriculo */
+
+  .curriculo-container {
+    display: flex;
+    flex-direction: column; /* Alinha os cards em coluna no mobile */
+    align-items: center;
+    margin-top: 5rem;
+  }
+
+  .timeline {
+    padding: 100px 0;
+  }
+
+  .entry .title:before {
+    right: -27px;
+  }
+
+  .download-button {
+    width: 100%;
+    height: 60px;
+    margin: 3rem 0;
+    font-size: 1.2rem;
+  }
 }
 
 /*
@@ -587,7 +704,7 @@ Ir para o TOPO
   bottom: 20px;
   right: 30px;
   z-index: 99;
-  border: 2px var(--black) solid;
+  border: 3.5px var(--black) solid;
   color: var(--black);
   cursor: pointer;
   padding: 15px;
@@ -597,6 +714,6 @@ Ir para o TOPO
 }
 
 #topButton:hover {
-  border: 2px var(--lighter-blue) solid;
+  border: 3.5px var(--lighter-blue) solid;
   color: var(--lighter-blue);
 }
