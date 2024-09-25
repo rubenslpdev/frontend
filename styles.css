@@ -60,7 +60,6 @@ html {
 
 body {
   font-family: var(--ff-roboto);
-  background: #dd77ae;
   color: var(--white);
 }
 
@@ -116,7 +115,7 @@ HEADER
   position: relative;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .logo {
@@ -246,7 +245,7 @@ PROJETOS RECENTES
   text-align: right;
   right: 0;
   padding: 0 1.5rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 .projetos-titulo {
@@ -281,7 +280,7 @@ PROJETOS RECENTES
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 26rem;
+  margin-top: 13rem;
   width: 100%;
   gap: 1.5rem;
 }
@@ -289,23 +288,219 @@ PROJETOS RECENTES
 .projetos-card1,
 .projetos-card2,
 .projetos-card3 {
-  max-width: 100%; /* Largura máxima para os cards */
-  width: 20.3125rem;
-  flex: 1; /* Para os cards crescerem de maneira uniforme */
-  display: flex;
-  flex-direction: column;
+  color: var(--black);
+  position: relative;
+  margin: 6rem 0;
 }
 
 .projetos-card2 {
-  transform: translateY(-10rem);
+  transition-delay: 0.3s;
+}
+
+.projetos-card3 {
+  transition-delay: 0.6s;
 }
 
 .projetos-img {
-  max-width: 100%;
-  width: 20.3125rem;
+  width: 100%;
   height: auto;
   border-radius: 2.125rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
+
+.projetos-container h1 {
+  font-family: var(--ff-bruno);
+  color: var(--green);
+  font-size: 7rem;
+  position: absolute;
+  top: -5rem;
+  transition: top 0.3s ease;
+}
+
+.projetos-container p {
+  margin: 1rem 0;
+}
+
+.projetos-visite-img {
+  width: 13px;
+  margin-left: 5px;
+}
+
+.projetos-card1:hover h1,
+.projetos-card2:hover h1,
+.projetos-card3:hover h1 {
+  top: -7rem;
+}
+
+/* Card animation */
+
+.card-animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.card-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*
+==================
+CURRICULO 
+==================
+*/
+
+#curriculo {
+  background: var(--green);
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.curriculo-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100px;
+  background-color: #3cc588;
+}
+
+.curriculo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rem;
+  width: 100%;
+  gap: 1.5rem;
+}
+
+.curriculo-intro h3 {
+  color: #2c7052;
+  margin: 5rem 0;
+}
+
+/* Download button */
+
+.download-button {
+  --width: 150px;
+  --height: 35px;
+  --tooltip-height: 35px;
+  --tooltip-width: 90px;
+  --gap-between-tooltip-to-button: 18px;
+  --button-color: #2d376b;
+  --tooltip-color: #fff;
+  width: var(--width);
+  height: var(--height);
+  background: var(--button-color);
+  position: relative;
+  text-align: center;
+  border-radius: 45px;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.download-button::before {
+  position: absolute;
+  content: attr(data-tooltip);
+  width: var(--tooltip-width);
+  height: var(--tooltip-height);
+  background-color: var(--tooltip-color);
+  font-size: 0.9rem;
+  color: #111;
+  border-radius: 0.25em;
+  line-height: var(--tooltip-height);
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+  left: calc(50% - var(--tooltip-width) / 2);
+}
+
+.download-button::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: var(--tooltip-color);
+  left: calc(50% - 10px);
+  bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+}
+
+.download-button::after,
+.download-button::before {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.download-btn-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-button-wrapper,
+.download-btn-text,
+.download-btn-icon {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  color: #fff;
+}
+
+.download-btn-text {
+  top: 0;
+}
+
+.download-btn-text,
+.download-btn-icon {
+  transition: top 0.5s;
+}
+
+.download-btn-icon {
+  color: #fff;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-btn-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.download-button:hover {
+  background: #2c7052;
+}
+
+.download-button:hover .download-btn-text {
+  top: -100%;
+}
+
+.download-button:hover .download-btn-icon {
+  top: 0;
+}
+
+.download-button:hover:before,
+.download-button:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.download-button:hover:after {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+}
+
+.download-button:hover:before {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+}
+
+/* End Download Button */
 
 /*
 ==============
@@ -356,21 +551,21 @@ Media Query
   }
 
   .projetos-highlight {
-    margin: 0 1.5rem;
+    margin: 0 2rem;
   }
 
   .projetos-container {
     display: flex;
     flex-direction: column; /* Alinha os cards em coluna no mobile */
-    align-items: center; /* Centraliza os cards horizontalmente */
-    margin-top: 6rem;
+    align-items: center;
+    margin-top: 5rem;
   }
 
   .projetos-card1,
   .projetos-card2,
   .projetos-card3 {
     max-width: 100%;
-    margin: 0 auto 2rem; /* Centraliza os cards e dá um espaçamento entre eles */
+    margin: 4rem auto 2rem; /* Centraliza os cards e dá um espaçamento entre eles */
   }
 
   .projetos-card2 {
