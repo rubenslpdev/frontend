@@ -1,6 +1,6 @@
-//
+//////////////////////////
 // Botão "IR PARA O TOPO"
-//
+//////////////////////////
 
 let mybutton = document.getElementById('topButton');
 
@@ -21,9 +21,9 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-//
+/////////////////////////////////////////
 // Animação cards de projetos e timeline
-//
+/////////////////////////////////////////
 
 document.addEventListener('DOMContentLoaded', function () {
   const cards = document.querySelectorAll('.card-animate');
@@ -47,9 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-//
-// MOver botão de download para fim da .timeline
-//
+//////////////////////////////////////////////////
+// Mover botão de download para fim da .timeline
+//////////////////////////////////////////////////
 
 window.addEventListener('resize', function () {
   const button = document.querySelector('.download-button');
@@ -67,3 +67,82 @@ window.addEventListener('resize', function () {
 
 // Executa a função ao carregar a página para garantir o comportamento correto desde o início
 window.dispatchEvent(new Event('resize'));
+
+///////////////////////////////
+// Scroll automático na página
+///////////////////////////////
+
+document.addEventListener('DOMContentLoaded', function () {
+  const sections = document.querySelectorAll('section');
+  let currentIndex = 0;
+  let isScrolling = false;
+  let lastScrollTime = 0;
+  const scrollCooldown = 1000; // Tempo de espera entre scrolls em milissegundos
+
+  function scrollToSection(index) {
+    if (index < 0 || index >= sections.length || isScrolling) return;
+
+    const now = Date.now();
+    if (now - lastScrollTime < scrollCooldown) return;
+
+    isScrolling = true;
+    lastScrollTime = now;
+
+    sections[index].scrollIntoView({ behavior: 'smooth' });
+    currentIndex = index;
+
+    setTimeout(() => {
+      isScrolling = false;
+    }, scrollCooldown);
+  }
+
+  function handleScroll(direction) {
+    const newIndex = currentIndex + direction;
+    scrollToSection(newIndex);
+  }
+
+  // Detecta o scroll do mouse
+  window.addEventListener(
+    'wheel',
+    function (e) {
+      e.preventDefault(); // Previne o scroll padrão
+      const direction = e.deltaY > 0 ? 1 : -1;
+      handleScroll(direction);
+    },
+    { passive: false }
+  );
+
+  // Detecta as teclas de seta
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault(); // Previne o comportamento padrão das teclas
+      const direction = e.key === 'ArrowDown' ? 1 : -1;
+      handleScroll(direction);
+    }
+  });
+
+  // Ajuste do índice ao redimensionar a tela
+  window.addEventListener('resize', function () {
+    scrollToSection(currentIndex);
+  });
+
+  // Scroll para a seção mais próxima quando a página carrega
+  function scrollToNearestSection() {
+    const viewportMiddle = window.innerHeight / 2;
+    let nearestSection = 0;
+    let minDistance = Infinity;
+
+    sections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      const distance = Math.abs(rect.top + rect.height / 2 - viewportMiddle);
+      if (distance < minDistance) {
+        minDistance = distance;
+        nearestSection = index;
+      }
+    });
+
+    scrollToSection(nearestSection);
+  }
+
+  scrollToNearestSection();
+});

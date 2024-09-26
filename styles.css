@@ -96,6 +96,15 @@ h4 {
   background-color: var(--light-blue);
 }
 
+section,
+.viewport {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
+}
+
 /*
 =============== 
 HEADER 
@@ -244,6 +253,7 @@ PROJETOS RECENTES
   width: 100%;
   max-width: 30rem;
   text-align: right;
+  top: 0;
   right: 0;
   padding: 0 1.5rem;
   margin-top: 3rem;
@@ -592,14 +602,6 @@ CURRICULUM VITAE
   padding-left: 0;
   list-style-type: none;
 }
-/* .entry .body ul li:before {
-  content: '•';
-  color: #3f82b2;
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-} */
 
 .entry .body ul li span {
   display: inline-block;
@@ -614,11 +616,29 @@ CURRICULUM VITAE
 
 /*
 ==============
+CONTATO 
+==============
+*/
+
+#contato {
+  background: var(--dark-blue);
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+/*
+==============
 Media Query 
 ==============
 */
 
 @media (max-width: 768px) {
+  section,
+  .viewport {
+    height: auto;
+  }
+
   /* Header */
 
   .header-containers {
