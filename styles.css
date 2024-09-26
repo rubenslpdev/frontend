@@ -387,7 +387,9 @@ CURRICULUM VITAE
 }
 
 .curriculo-intro h3 {
-  color: #2c7052;
+  color: #2d376b;
+  font-family: var(--ff-caprasimo);
+  font-size: 2.2rem;
   margin: 5rem 0;
 }
 
@@ -544,7 +546,7 @@ CURRICULUM VITAE
   margin-bottom: 0.5em;
   float: left;
   width: 33%;
-  padding-right: 30px;
+  padding-right: 10px;
   text-align: right;
   position: relative;
 }
@@ -563,7 +565,7 @@ CURRICULUM VITAE
 .entry .title h3 {
   color: #3f82b2;
   margin: 0;
-  font-size: 120%;
+  font-size: 85%;
 }
 .entry .title p {
   margin: 0;
@@ -578,6 +580,8 @@ CURRICULUM VITAE
 }
 .entry .body p {
   line-height: 1.4em;
+  color: var(--dark-blue);
+  margin-bottom: 0.5rem;
 }
 .entry .body p:first-child {
   margin-top: 0;
@@ -588,9 +592,24 @@ CURRICULUM VITAE
   padding-left: 0;
   list-style-type: none;
 }
-.entry .body ul li:before {
-  content: '–';
-  margin-right: 0.5em;
+/* .entry .body ul li:before {
+  content: '•';
+  color: #3f82b2;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+} */
+
+.entry .body ul li span {
+  display: inline-block;
+  background-color: #3f82b2;
+  border: 1px solid var(--dark-blue);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px 5px 0 0;
+  font-size: 12px;
+  color: #fff;
 }
 
 /*
@@ -672,6 +691,10 @@ Media Query
     flex-direction: column; /* Alinha os cards em coluna no mobile */
     align-items: center;
     margin-top: 5rem;
+  }
+
+  .curriculo-intro h3 {
+    font-size: 1.8rem;
   }
 
   .timeline {
