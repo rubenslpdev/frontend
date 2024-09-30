@@ -149,3 +149,19 @@ document.addEventListener('DOMContentLoaded', function () {
     scrollToNearestSection();
   }
 });
+
+///////////////////////////////
+// Language Button
+///////////////////////////////
+
+document.addEventListener('DOMContentLoaded', function () {
+  const langButton = document.getElementById('lang-button');
+
+  // Adiciona a classe 'hover-effect' logo após carregar a página
+  langButton.classList.add('hover-effect');
+
+  // Remove a classe 'hover-effect' após 3 segundos (3000 milissegundos)
+  setTimeout(function () {
+    langButton.classList.remove('hover-effect');
+  }, 2000); // Ajuste o tempo como preferir
+});

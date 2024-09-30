@@ -126,6 +126,63 @@ HEADER
   padding: 2rem;
 }
 
+/* Language button */
+
+.button-container {
+  position: relative;
+
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1;
+}
+
+.lang-button {
+  display: flex;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 45px;
+  border: none;
+  background-color: var(--dark-blue);
+  color: #fff;
+  transition: width 0.7s;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.lang-button .flag-icon {
+  width: 25px;
+  height: auto;
+  margin-left: 5px;
+}
+
+.lang-button .button-text {
+  opacity: 0;
+  transition: opacity 0.5s;
+  width: 100%;
+}
+
+.lang-button:hover {
+  width: 160px;
+  transition: width 0.7s;
+}
+
+.lang-button:hover .button-text {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.lang-button.hover-effect {
+  width: 160px;
+}
+
+.lang-button.hover-effect .button-text {
+  opacity: 1;
+}
+
+/* End language button  */
+
 .logo {
   color: var(--white);
   font-family: var(--ff-caprasimo);
@@ -137,7 +194,7 @@ HEADER
 
 .header-containers {
   position: relative;
-  margin: 0 auto;
+  margin: 2rem auto;
   width: 100%;
   height: auto;
   display: flex;
