@@ -96,14 +96,6 @@ h4 {
   background-color: var(--light-blue);
 }
 
-section,
-.viewport {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
 /*
 =============== 
 HEADER 
@@ -123,7 +115,11 @@ HEADER
   position: relative;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2rem;
+  padding: 5rem 2rem;
+}
+
+.viewport-margin {
+  margin: 5rem 0;
 }
 
 /* Language button */
@@ -241,7 +237,7 @@ HEADER
   cursor: pointer;
   transition: var(--transition);
   position: relative;
-  margin-bottom: 5rem;
+
   font-size: 1rem;
 }
 
@@ -310,7 +306,7 @@ PROJETOS RECENTES
   top: 0;
   right: 0;
   padding: 0 1.5rem;
-  margin-top: 3rem;
+  margin-top: 6rem;
 }
 
 .projetos-titulo {
@@ -355,7 +351,7 @@ PROJETOS RECENTES
 .projetos-card3 {
   color: var(--black);
   position: relative;
-  margin: 6rem 0;
+  margin-top: 6rem;
 }
 
 .projetos-card2 {
@@ -439,8 +435,7 @@ CURRICULUM VITAE
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  /* align-items: center; */
-  margin-top: 10rem;
+  margin-top: 5rem;
   width: 100%;
   gap: 1.5rem;
 }
@@ -694,7 +689,7 @@ CONTATO
 
 .contato-container {
   position: relative;
-  margin: 0 auto;
+  margin: 10rem auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -805,12 +800,10 @@ Media Query
 */
 
 @media (max-width: 768px) {
-  section,
-  .viewport {
-    height: auto;
-  }
-
   /* Header */
+  .viewport {
+    padding: 3rem 2rem;
+  }
 
   .header-containers {
     display: flex;
@@ -847,6 +840,7 @@ Media Query
     position: relative;
     text-align: left;
     max-width: 100%;
+    margin-top: 0;
   }
 
   .projetos-titulo {
@@ -910,7 +904,7 @@ Media Query
     flex-direction: column;
     width: 100%;
     height: 100%;
-    margin: 5rem auto;
+    margin: 10rem auto;
   }
 }
 
